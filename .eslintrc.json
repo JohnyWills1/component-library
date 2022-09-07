@@ -1,3 +1,51 @@
 {
-  "extends": "next/core-web-vitals"
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+        "airbnb-typescript",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "import",
+        "jsx-a11y"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["pages", "public", "src"],
+                "extensions": [".js", ".jsx", ".ts", ".d.ts", ".tsx"]
+            }
+        }
+    },
+    "rules": {
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variable",
+                "modifiers": ["destructured"],
+                "format": null
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": ["**/*.stories.tsx"]
+            }
+        ],
+        "import/order": "off",
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "components": ["Link"],
+                "specialLink": ["hrefLeft", "hrefRight"],
+                "aspects": ["invalidHref", "preferButton"]
+            }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "react/static-property-placement": "warn"
+    }
 }
