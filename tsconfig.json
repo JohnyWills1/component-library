@@ -16,8 +16,8 @@
         "jsx": "preserve",
         "incremental": true,
         "paths": {
-            "@Icons": ["src/Components/Icons"],
-            "@Icons/*": ["src/Components/Icons/*"],
+            "@Icons": ["src/Icons"],
+            "@Icons/*": ["src/Icons/*"],
             "@Components": ["src/Components"],
             "@Components/*": ["src/Components/*"],
             "@Contexts": ["src/Contexts"],
