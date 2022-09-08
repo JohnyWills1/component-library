@@ -1,86 +1,15 @@
 // #region Global Imports
 import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
 // #endregion Global Imports
 
-type Props = {
-    children: React.ReactNode;
-    isOpen: boolean;
-    onClose: () => void;
-    placement: 'left' | 'right' | 'top' | 'bottom';
-};
+// #region Local Imports
+import { Close } from '@Icons';
+import { DrawerCloseButton, DrawerContent, DrawerWrapper } from './styles';
+// #endregion Local Imports
 
-type DrawerProps = {
-    isOpen: boolean;
-    placement: 'left' | 'right' | 'top' | 'bottom';
-};
-
-const transforms = {
-    top: 'translateY(-100%)',
-    right: 'translateX(100%)',
-    bottom: 'translateY(100%)',
-    left: 'translateX(-100%)',
-};
-
-const placements = {
-    top: {
-        top: 0,
-        right: 0,
-        left: 0,
-    },
-    right: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-    },
-    bottom: {
-        right: 0,
-        bottom: 0,
-        left: 0,
-    },
-    left: {
-        top: 0,
-        bottom: 0,
-        left: 0,
-    },
-};
-
-const DrawerWrapper = styled.div<DrawerProps>`
-    position: fixed;
-    width: ${(props) =>
-        props.placement !== 'top' && props.placement !== 'bottom'
-            ? '100%'
-            : '100%'};
-    height: ${(props) =>
-        props.placement === 'top' || props.placement === 'bottom'
-            ? '250px'
-            : '100%'};
-    transform: ${(props) =>
-        !props.isOpen ? transforms[props.placement] : 'none'};
-    ${(props) => placements[props.placement]};
-`;
-
-const DrawerContent = styled.div<DrawerProps>`
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 16;
-    ${(props) => placements[props.placement]};
-    width: ${(props) =>
-        props.placement !== 'top' && props.placement !== 'bottom'
-            ? '30%'
-            : '100%'};
-    height: ${(props) =>
-        props.placement !== 'top' && props.placement !== 'bottom'
-            ? '100%'
-            : '30%'};
-    transform: ${(props) =>
-        !props.isOpen ? transforms[props.placement] : 'none'};
-    transition: transform 0.5s ease-in-out;
-    overflow: hidden;
-    color: #000;
-    background-color: #fff;
-    padding: 2rem 1.5rem;
-`;
+// #region Type Imports
+import { Props } from './types';
+// #endregion Type Imports
 
 function Drawer({
     children,
@@ -123,6 +52,9 @@ function Drawer({
                 placement={placement}
                 ref={drawerRef}
             >
+                <DrawerCloseButton>
+                    <Close />
+                </DrawerCloseButton>
                 {children}
             </DrawerContent>
         </DrawerWrapper>
