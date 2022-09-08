@@ -77,7 +77,29 @@ const DrawerCloseButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-bottom: 1em;
+    font-size: 0.7em;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
+    }
+
+    div:hover {
+        background-color: #ebebeb;
+        border-radius: 6px;
+        cursor: pointer;
+    }
 `;
 
-export { DrawerCloseButton, DrawerContent, DrawerWrapper };
+const DrawerChildrenContent = styled.div`
+    margin-top: 12px;
+`;
+
+export {
+    DrawerChildrenContent,
+    DrawerCloseButton,
+    DrawerContent,
+    DrawerWrapper,
+};

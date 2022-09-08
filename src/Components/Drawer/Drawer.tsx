@@ -4,7 +4,12 @@ import React, { useEffect, useRef } from 'react';
 
 // #region Local Imports
 import { Close } from '@Icons';
-import { DrawerCloseButton, DrawerContent, DrawerWrapper } from './styles';
+import {
+    DrawerChildrenContent,
+    DrawerCloseButton,
+    DrawerContent,
+    DrawerWrapper,
+} from './styles';
 // #endregion Local Imports
 
 // #region Type Imports
@@ -53,9 +58,11 @@ function Drawer({
                 ref={drawerRef}
             >
                 <DrawerCloseButton>
-                    <Close />
+                    <div onClick={() => onClose()}>
+                        <Close />
+                    </div>
                 </DrawerCloseButton>
-                {children}
+                <DrawerChildrenContent>{children}</DrawerChildrenContent>
             </DrawerContent>
         </DrawerWrapper>
     );

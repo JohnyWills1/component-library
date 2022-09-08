@@ -39,16 +39,13 @@ function Home({}: Props): JSX.Element {
                 placement="left"
             >
                 <div>Test Content - Left</div>
-                <button onClick={() => setIsOpenLeft(false)}>
-                    Close Drawer
-                </button>
             </Drawer>
             <Drawer
                 isOpen={isOpenRight}
                 onClose={() => setIsOpenRight(false)}
                 placement="right"
             >
-                Test Content - Right
+                <p>Test Content - Right</p>
             </Drawer>
             <Drawer
                 isOpen={isOpenTop}
@@ -70,7 +67,7 @@ function Home({}: Props): JSX.Element {
                         setIsOpenLeft(true);
                     }}
                 >
-                    Open - Left - {JSON.stringify(isOpenLeft)}
+                    Open - Left
                 </button>
                 <button
                     onClick={() => {
