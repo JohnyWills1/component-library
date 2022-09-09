@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from 'react';
 // #region Local Imports
 import { Close } from '@Icons';
 import {
+    DrawerBackdrop,
     DrawerChildrenContent,
     DrawerCloseButton,
     DrawerContent,
@@ -18,6 +19,7 @@ import { Props } from './types';
 
 function Drawer({
     children,
+    hideButton = false,
     isOpen,
     onClose = () => {},
     placement = 'left',
@@ -52,16 +54,19 @@ function Drawer({
 
     return (
         <DrawerWrapper isOpen={isOpen} placement={placement}>
+            <DrawerBackdrop isOpen={isOpen} />
             <DrawerContent
                 isOpen={isOpen}
                 placement={placement}
                 ref={drawerRef}
             >
-                <DrawerCloseButton>
-                    <div onClick={() => onClose()}>
-                        <Close />
-                    </div>
-                </DrawerCloseButton>
+                {!hideButton && (
+                    <DrawerCloseButton>
+                        <div onClick={() => onClose()}>
+                            <Close />
+                        </div>
+                    </DrawerCloseButton>
+                )}
                 <DrawerChildrenContent>{children}</DrawerChildrenContent>
             </DrawerContent>
         </DrawerWrapper>
