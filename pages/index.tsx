@@ -19,76 +19,24 @@ const HomeLayout = styled.div`
 `;
 
 function Home({}: Props): JSX.Element {
-    const [isOpenLeft, setIsOpenLeft] = useState(false);
-    const [isOpenRight, setIsOpenRight] = useState(false);
-    const [isOpenTop, setIsOpenTop] = useState(false);
-    const [isOpenBottom, setIsOpenBottom] = useState(false);
-
-    useEffect(() => {
-        console.log('Left', isOpenLeft);
-        console.log('Right', isOpenRight);
-        console.log('Top', isOpenTop);
-        console.log('Bottom', isOpenBottom);
-    }, [isOpenLeft, isOpenRight, isOpenTop, isOpenRight]);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
             <Drawer
-                isOpen={isOpenLeft}
-                onClose={() => setIsOpenLeft(false)}
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
                 placement="left"
             >
                 <div>Test Content - Left</div>
             </Drawer>
-            <Drawer
-                isOpen={isOpenRight}
-                onClose={() => setIsOpenRight(false)}
-                placement="right"
-            >
-                <p>Test Content - Right</p>
-            </Drawer>
-            <Drawer
-                isOpen={isOpenTop}
-                onClose={() => setIsOpenTop(false)}
-                placement="top"
-            >
-                Test Content - Top
-            </Drawer>
-            <Drawer
-                isOpen={isOpenBottom}
-                onClose={() => setIsOpenBottom(false)}
-                placement="bottom"
-            >
-                Test Content - Bottom
-            </Drawer>
             <HomeLayout>
                 <button
                     onClick={() => {
-                        setIsOpenLeft(true);
+                        setIsOpen(true);
                     }}
                 >
                     Open - Left
-                </button>
-                <button
-                    onClick={() => {
-                        setIsOpenRight(true);
-                    }}
-                >
-                    Open - Right
-                </button>
-                <button
-                    onClick={() => {
-                        setIsOpenTop(true);
-                    }}
-                >
-                    Open - Top
-                </button>
-                <button
-                    onClick={() => {
-                        setIsOpenBottom(true);
-                    }}
-                >
-                    Open - Bottom
                 </button>
             </HomeLayout>
         </>
