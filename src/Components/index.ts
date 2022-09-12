@@ -1,3 +1,4 @@
 import Drawer from './Drawer';
+import Modal from './Modal';
 
-export { Drawer };
+export { Drawer, Modal };
