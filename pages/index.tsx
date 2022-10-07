@@ -29,38 +29,11 @@ function Home({}: Props): JSX.Element {
                 <div>Test Content - Left</div>
                 <div>Test Content - Left</div>
                 <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
-                <div>Test Content - Left</div>
             </Modal>
             <HomeLayout>
                 <button
                     onClick={() => {
-                        enqueueSnackbar(`${new Date()}`, {
-                            variant: 'warning',
-                        });
+                        setIsOpen(true);
                     }}
                 >
                     Open

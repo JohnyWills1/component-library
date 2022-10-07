@@ -1,8 +1,10 @@
 // #region Global Imports
 import React, { useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 // #endregion Global Imports
 
 // #region Local Imports
+import { ReactPortal } from '@Components';
 import { Close } from '@Icons';
 import { ModalContainer, ModalCloseButton, ModalContent } from './styles';
 // #endregion Local Imports
@@ -41,14 +43,27 @@ function Modal({ children, isOpen, onClose = () => {} }: Props): JSX.Element {
     }, [isOpen]);
 
     return (
-        <ModalContainer isOpen={isOpen} ref={modalRef}>
-            <ModalCloseButton>
-                <div onClick={() => onClose()}>
-                    <Close />
-                </div>
-            </ModalCloseButton>
-            <ModalContent>{children}</ModalContent>
-        </ModalContainer>
+        <ReactPortal id="root">
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ delay: 0, duration: 0.4 }}
+                    >
+                        <ModalContainer isOpen={isOpen} ref={modalRef}>
+                            <ModalCloseButton>
+                                <div onClick={() => onClose()}>
+                                    <Close />
+                                </div>
+                            </ModalCloseButton>
+                            <ModalContent>{children}</ModalContent>
+                        </ModalContainer>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </ReactPortal>
     );
 }
 

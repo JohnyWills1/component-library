@@ -17,8 +17,6 @@ const ModalContainer = styled.div<ModalProps>`
     max-height: 100%;
     margin-top: -200px;
     margin-left: -300px;
-    opacity: ${(props) => (props.isOpen ? '1' : '0')};
-    transition: transform, opacity 600ms cubic-bezier(0.2, 0.8, 0.4, 1);
     background-color: white;
     color: black;
     pointer-events: ${(props) => (props.isOpen ? 'unset' : 'none')};
