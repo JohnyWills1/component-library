@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // #endregion Global Imports
 
 // #region Local Imports
-import { Drawer } from '@Components';
+import { Drawer, Modal, useSnackbar } from '@Components';
 // #endregion Local Imports
 
 type Props = {};
@@ -21,22 +21,22 @@ const HomeLayout = styled.div`
 function Home({}: Props): JSX.Element {
     const [isOpen, setIsOpen] = useState(false);
 
+    const { enqueueSnackbar } = useSnackbar();
+
     return (
         <>
-            <Drawer
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
-                placement="left"
-            >
+            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 <div>Test Content - Left</div>
-            </Drawer>
+                <div>Test Content - Left</div>
+                <div>Test Content - Left</div>
+            </Modal>
             <HomeLayout>
                 <button
                     onClick={() => {
                         setIsOpen(true);
                     }}
                 >
-                    Open - Left
+                    Open
                 </button>
             </HomeLayout>
         </>
