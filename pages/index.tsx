@@ -25,11 +25,15 @@ function Home({}: Props): JSX.Element {
 
     return (
         <>
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <Drawer
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                placement="right"
+            >
                 <div>Test Content - Left</div>
                 <div>Test Content - Left</div>
                 <div>Test Content - Left</div>
-            </Modal>
+            </Drawer>
             <HomeLayout>
                 <button
                     onClick={() => {
@@ -37,6 +41,13 @@ function Home({}: Props): JSX.Element {
                     }}
                 >
                     Open
+                </button>
+                <button
+                    onClick={() => {
+                        enqueueSnackbar(`${new Date()}`, { variant: 'info' });
+                    }}
+                >
+                    Snackbar
                 </button>
             </HomeLayout>
         </>
